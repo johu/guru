@@ -3,17 +3,18 @@
 
 EAPI=8
 
-inherit cmake git-r3
+inherit cmake
 
 DESCRIPTION="Fan speed controller for Clevo laptops"
 HOMEPAGE="https://github.com/agramian/clevo-fan-control"
 EGIT_REPO_URI="https://github.com/agramian/clevo-fan-control.git"
-
 LICENSE="GPL-2"
 SLOT="0"
+GIT_COMMIT="76465b0ff86b86b1417a8956a49677c684873af1"
+SRC_URI="https://github.com/agramian/clevo-fan-control/archive/${GIT_COMMIT}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}-${GIT_COMMIT}"
+KEYWORDS="~amd64"
 
-inherit git-r3
-EGIT_REPO_URI="https://github.com/joncampbell123/dosbox-x.git"
 
 RDEPEND="
 dev-libs/libayatana-appindicator
