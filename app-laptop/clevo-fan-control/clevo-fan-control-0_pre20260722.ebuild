@@ -33,5 +33,5 @@ cmake_src_configure
 
 src_install() {
 	cmake_src_install
-	rm -rfv "${ED}/var"
+	rm -rfv "${ED}/var" || die
 }
