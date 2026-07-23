@@ -12,9 +12,6 @@ EGIT_REPO_URI="https://github.com/agramian/clevo-fan-control.git"
 LICENSE="GPL-2"
 SLOT="0"
 
-inherit git-r3
-EGIT_REPO_URI="https://github.com/joncampbell123/dosbox-x.git"
-
 RDEPEND="
 dev-libs/libayatana-appindicator
 x11-libs/gtk+:3

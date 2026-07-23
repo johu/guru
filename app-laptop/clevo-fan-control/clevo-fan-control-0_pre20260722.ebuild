@@ -8,13 +8,14 @@ inherit cmake
 DESCRIPTION="Fan speed controller for Clevo laptops"
 HOMEPAGE="https://github.com/agramian/clevo-fan-control"
 EGIT_REPO_URI="https://github.com/agramian/clevo-fan-control.git"
-LICENSE="GPL-2"
-SLOT="0"
+
 GIT_COMMIT="76465b0ff86b86b1417a8956a49677c684873af1"
 SRC_URI="https://github.com/agramian/clevo-fan-control/archive/${GIT_COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${PN}-${GIT_COMMIT}"
-KEYWORDS="~amd64"
 
+LICENSE="GPL-2"
+SLOT="0"
+KEYWORDS="~amd64"
 
 RDEPEND="
 dev-libs/libayatana-appindicator
@@ -24,15 +25,15 @@ DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 src_configure() {
-local mycmakeargs=(
--DUSER=portage
--DGROUP=portage
--DHOME="${T}/portage-home"
+	local mycmakeargs=(
+		-DUSER=portage
+		-DGROUP=portage
+		-DHOME="${T}/portage-home"
 )
 cmake_src_configure
 }
 
 src_install() {
-cmake_src_install
-rm -rfv "${ED}/var"
+	cmake_src_install
+	rm -rfv "${ED}/var"
 }
