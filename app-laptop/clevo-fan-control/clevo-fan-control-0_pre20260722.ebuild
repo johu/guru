@@ -26,8 +26,6 @@ BDEPEND="virtual/pkgconfig"
 
 src_configure() {
 	local mycmakeargs=(
-		-DUSER=portage
-		-DGROUP=portage
 		-DHOME="${T}/portage-home"
 )
 cmake_src_configure
