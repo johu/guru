@@ -32,6 +32,14 @@ PATCHES="
 	${FILESDIR}/${P}_fix_exceed_array_bounds.patch
 "
 
+src_prepare() {
+	sed -i -e '/^cmake_minimum_required/s/VERSION 3.9/VERSION 3.10/' \
+		 CMakeLists.txt || die
+	eapply_user
+
+	cmake_src_prepare
+}
+
 src_configure() {
 	local mycmakeargs=(
 		-DENABLE_TESTING=$(usex test)
